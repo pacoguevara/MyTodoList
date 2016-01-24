@@ -29,6 +29,24 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         tapGestureRecognizer.addTarget(self, action: "toggleDatePicker")
         self.dateLabel.addGestureRecognizer(tapGestureRecognizer)
         self.dateLabel.userInteractionEnabled = true
+        self.addGestureRecognizerToImage()
+    }
+    
+    func addGestureRecognizerToImage(){
+        let gr = UITapGestureRecognizer()
+        gr.numberOfTapsRequired = 1
+        gr.numberOfTouchesRequired = 1
+        gr.addTarget(self, action: "rotate")
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(gr)
+    }
+    
+    func rotate(){
+        let animation = CABasicAnimation()
+        animation.keyPath = "transform.rotation"
+        animation.toValue = M_PI * 2.0
+        animation.duration = 1
+        self.imageView.layer.addAnimation(animation, forKey: "rotateAnimation")
     }
     
     func showItem(){
@@ -44,8 +62,11 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func toggleDatePicker(){
-        self.imageView.hidden = self.datePicker.hidden
-        self.datePicker.hidden = !self.datePicker.hidden
+        if self.datePicker.hidden {
+            self.fadeInDatePicker()
+        }else{
+            self.fadeOutDatePicker()
+        }
     }
 
     @IBAction func dateSelected(sender: UIDatePicker) {
@@ -96,6 +117,30 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: Animaciones
+    
+    func fadeInDatePicker() {
+        self.datePicker.alpha = 0
+        self.datePicker.hidden =  false
+        UIView.animateWithDuration(1) { ()-> Void in
+            self.datePicker.alpha = 1
+            self.imageView.alpha = 0
+        }
+    }
+    
+    func fadeOutDatePicker() {
+        self.datePicker.alpha = 1
+        self.datePicker.hidden =  false
+        UIView.animateWithDuration(1, animations: { ()-> Void in
+            self.datePicker.alpha = 0
+            self.imageView.alpha = 1
+            }) { (completed) -> Void in
+                if completed {
+                    self.datePicker.hidden = true
+                }
+        }
     }
     
 
