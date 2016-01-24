@@ -14,6 +14,10 @@ class TodoItem: NSObject, NSCoding {
     var dueDate: NSDate?
     var image: UIImage?
     
+    override init() {
+        super.init()
+    }
+    
     required init(coder aDecoder: NSCoder) {
         super.init()
         

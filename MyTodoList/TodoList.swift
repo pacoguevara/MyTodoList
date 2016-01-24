@@ -31,12 +31,16 @@ class TodoList: NSObject {
     
     func saveItems(){
         let itemsArray = items as NSArray
-        NSKeyedArchiver.archiveRootObject(itemsArray, toFile: self.fileURL.path)
+        if NSKeyedArchiver.archiveRootObject(itemsArray, toFile: self.fileURL.path!){
+            print("Guardado!")
+        }else{
+            print("No se pudo guardar")
+        }
     }
     
     func loadItems(){
-        if let itemsArray = NSArray(contentsOfURL: self.fileURL) as? [String] {
-            self.items = itemsArray
+        if let itemsArray = NSKeyedUnarchiver.unarchiveObjectWithFile(self.fileURL.path!) {
+            self.items = itemsArray as! [TodoItem]
         }
     }
     
@@ -54,7 +58,7 @@ extension TodoList : UITableViewDataSource {
         let cell: AnyObject = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let item = items[indexPath.row]
         
-        cell.textLabel!!.text = item
+        cell.textLabel!!.text = item.todo
         return cell as! UITableViewCell
     }
     
