@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6368D4301BB0C790006A2AC3 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6368D42F1BB0C790006A2AC3 /* TodoItem.swift */; settings = {ASSET_TAGS = (); }; };
 		637EEF5F1B87F18100957890 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637EEF5E1B87F18100957890 /* AppDelegate.swift */; };
 		637EEF611B87F18100957890 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637EEF601B87F18100957890 /* ViewController.swift */; };
 		637EEF641B87F18100957890 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637EEF621B87F18100957890 /* Main.storyboard */; };
 		637EEF661B87F18100957890 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637EEF651B87F18100957890 /* Images.xcassets */; };
 		637EEF691B87F18100957890 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637EEF671B87F18100957890 /* LaunchScreen.xib */; };
 		637EEF751B87F18100957890 /* MyTodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637EEF741B87F18100957890 /* MyTodoListTests.swift */; };
+		63872AF11BA89DF9009826F3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63872AF01BA89DF9009826F3 /* DetailViewController.swift */; };
+		639F3AF21B8C1D2300F18D4E /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3AF11B8C1D2300F18D4E /* TodoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6368D42F1BB0C790006A2AC3 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		637EEF591B87F18100957890 /* MyTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		637EEF5D1B87F18100957890 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		637EEF5E1B87F18100957890 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		637EEF6E1B87F18100957890 /* MyTodoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTodoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		637EEF731B87F18100957890 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		637EEF741B87F18100957890 /* MyTodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoListTests.swift; sourceTree = "<group>"; };
+		63872AF01BA89DF9009826F3 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		639F3AF11B8C1D2300F18D4E /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +83,14 @@
 		637EEF5B1B87F18100957890 /* MyTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				639F3AF11B8C1D2300F18D4E /* TodoList.swift */,
 				637EEF5E1B87F18100957890 /* AppDelegate.swift */,
 				637EEF601B87F18100957890 /* ViewController.swift */,
 				637EEF621B87F18100957890 /* Main.storyboard */,
 				637EEF651B87F18100957890 /* Images.xcassets */,
 				637EEF671B87F18100957890 /* LaunchScreen.xib */,
+				63872AF01BA89DF9009826F3 /* DetailViewController.swift */,
+				6368D42F1BB0C790006A2AC3 /* TodoItem.swift */,
 				637EEF5C1B87F18100957890 /* Supporting Files */,
 			);
 			path = MyTodoList;
@@ -156,7 +165,8 @@
 		637EEF511B87F18000957890 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Paco Guevara";
 				TargetAttributes = {
 					637EEF581B87F18000957890 = {
@@ -212,8 +222,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6368D4301BB0C790006A2AC3 /* TodoItem.swift in Sources */,
+				639F3AF21B8C1D2300F18D4E /* TodoList.swift in Sources */,
 				637EEF611B87F18100957890 /* ViewController.swift in Sources */,
 				637EEF5F1B87F18100957890 /* AppDelegate.swift in Sources */,
+				63872AF11BA89DF9009826F3 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +289,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -291,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -329,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -341,7 +355,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyTodoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "skylight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -351,7 +367,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyTodoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "skylight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -370,6 +388,7 @@
 				);
 				INFOPLIST_FILE = MyTodoListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "skylight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyTodoList.app/MyTodoList";
 			};
@@ -385,6 +404,7 @@
 				);
 				INFOPLIST_FILE = MyTodoListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "skylight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyTodoList.app/MyTodoList";
 			};
@@ -409,6 +429,7 @@
 				637EEF7A1B87F18100957890 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		637EEF7B1B87F18100957890 /* Build configuration list for PBXNativeTarget "MyTodoListTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +438,7 @@
 				637EEF7D1B87F18100957890 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
