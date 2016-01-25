@@ -80,6 +80,19 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
                 self.item?.dueDate = date
                 self.todoList?.saveItems()
                 scheduleNotification(self.item!.todo!, date: date)
+                
+                API.save(self.item!, todoList: self.todoList!, responseBlock: {
+                    (error) -> Void in
+                    dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                        if let err = error{
+                            print(err)
+                            self.showError()
+                        }else{
+                            self.navigationController?.popViewControllerAnimated(true)
+                        }
+                    })
+                    
+                })
                 self.navigationController?.popViewControllerAnimated(true)
             }
         }
@@ -90,6 +103,16 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePickerController.delegate = self
         self.presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func showError(){
+        let alert = UIAlertController(title: "Ups!", message: "No pudimos guardar tus cambios, revisa tu conexion a internet", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default) {
+            _ in
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil )
     }
     
     func scheduleNotification(message: String, date: NSDate){
